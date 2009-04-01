@@ -86,7 +86,7 @@ module FormFu
       options[:field].merge!(:has_error => has_error, :field_type => options[:field_type])
 
       # find label name
-      label_name = options[:label] || field.to_s.humanize
+      label_name = options[:label] || @object.class.human_attribute_name(field)
       options[:separator] ||= default_separator
       label_name = "#{label_name}#{options.delete(:separator)}"
       
